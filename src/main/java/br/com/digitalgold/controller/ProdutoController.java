@@ -18,7 +18,7 @@ import br.com.digitalgold.service.ProdutoService;
 
 
 @RestController
-@RequestMapping(value = "/api/v1/produto")
+@RequestMapping(value = "/api/v1/produtos")
 public class ProdutoController {
 	
 	@Autowired

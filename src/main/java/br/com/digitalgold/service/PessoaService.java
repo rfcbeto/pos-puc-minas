@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import br.com.digitalgold.data.entity.Endereco;
 import br.com.digitalgold.data.entity.Pessoa;
 import br.com.digitalgold.exceptions.PessoaException;
 import br.com.digitalgold.repository.PessoaPageRepository;
@@ -31,5 +30,17 @@ public class PessoaService {
 	
 	public Pessoa criar(Pessoa pessoa) {
 		return repository.save(pessoa);
+	}
+
+	public Pessoa atualizar(Pessoa pessoa) {
+		return repository.save(pessoa);
+	}
+
+	public void excluir(Long idPessoa) throws PessoaException{
+		try {
+			repository.deleteById(idPessoa);			
+		} catch (Exception e) {
+			throw new PessoaException("Pessoa não encontrada");
+		}
 	}
 }
