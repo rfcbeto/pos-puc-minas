@@ -1,5 +1,9 @@
 package br.com.digitalgold.config;
 
+import javax.activation.DataSource;
+
+import org.flywaydb.core.Flyway;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -58,6 +62,5 @@ public class SpringFoxConfig {
 				.version("1.0")
 				.build();
 	}
-	
 
 }

@@ -9,6 +9,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -17,6 +18,10 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Comment;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
@@ -28,7 +33,7 @@ import lombok.Data;
 @Data
 @Table(name="TB_PESSOA")
 @Entity
-@JsonPropertyOrder({ "id", "nome", "dataNascimento", "genero", "telefone", "tipo", "status", "tipoPessoa", "enderecos" })
+@JsonPropertyOrder({ "id", "nome", "genero", "dataNascimento", "telefone", "tipo", "tipoPessoa", "status", "enderecos" })
 public class Pessoa implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -52,6 +57,7 @@ public class Pessoa implements Serializable{
 	private String telefone;
 	
 	@JsonProperty("status")
+	@JsonInclude(Include.NON_NULL)
 	@Column(name = "STATUS", length = 20)
 	private String status;
 	
@@ -60,10 +66,11 @@ public class Pessoa implements Serializable{
 	private String dataNascimento;
 	
 	@Enumerated(EnumType.ORDINAL)
-	@Column(name = "tipo", columnDefinition="INTEGER COMMENT '0 - Outros, 1 - Cliente Varejista, 2 - Cliente Atacadista, 3 - Vendedor, 4 - Gerente'")
+	@Comment("0 - Outros, 1 - Cliente Varejista, 2 - Cliente Atacadista, 3 - Vendedor, 4 - Gerente")
+	@Column(name = "tipo", columnDefinition="INTEGER")
 	private TipoPessoaEnum tipoPessoa;
 	
-	@OneToMany(targetEntity = Endereco.class, cascade = CascadeType.ALL)
+	@OneToMany(targetEntity = Endereco.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "pessoa_id", referencedColumnName = "id")
 	private Set<Endereco> enderecos = new HashSet<>();
 

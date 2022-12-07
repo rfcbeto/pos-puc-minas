@@ -10,8 +10,11 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "TB_NOTA")
@@ -35,9 +38,8 @@ public class Nota implements Serializable {
 	@Column(name = "nome_fantasia")
 	private String xFant;
 	
-	//@OneToMany(cascade = CascadeType.PERSIST)
-	@OneToMany(mappedBy = "nota", orphanRemoval = true, fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-	//@Transient
+	@OneToMany(targetEntity = Produto.class, orphanRemoval = true, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "nota_id", referencedColumnName = "id")
 	private List<Produto> produtos;
 	 
 

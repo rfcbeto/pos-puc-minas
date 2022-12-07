@@ -73,12 +73,24 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 	
-		<!-- BANCO DE DADOS H2 -->
+		<!-- BANCO DE DADOS H2 
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 		</dependency>
+		-->
+		<dependency>
+		   <groupId>org.postgresql</groupId>
+		   <artifactId>postgresql</artifactId>
+		   <scope>runtime</scope>
+		</dependency>
 		
+		<!-- FLYWAY GESTÃO DO BANCO DE DADOS -->
+		<dependency>
+		    <groupId>org.flywaydb</groupId>
+		    <artifactId>flyway-core</artifactId>
+		</dependency>
+		 
 		<!-- TODOS OS MODULOS DO ITEXT 7-->
 		<dependency>
 		    <groupId>com.itextpdf</groupId>
@@ -125,6 +137,31 @@
 						</exclude>
 					</excludes>
 				</configuration>
+			</plugin>
+			<plugin>
+			   <groupId>org.flywaydb</groupId>
+			   <artifactId>flyway-maven-plugin</artifactId>
+			   <executions>
+			      <execution>
+			         <phase>generate-sources</phase>
+			         <goals>
+			            <goal>migrate</goal>
+			         </goals>
+			      </execution>
+			   </executions>
+			   <configuration>
+			      <driver>org.postgresql.Driver</driver>
+			      <url>jdbc:postgresql://localhost:5432/dbDigitalGold</url>
+			      <user>postgres</user>
+			      <password>admin</password>
+			      <baselineOnMigrate>true</baselineOnMigrate>
+			      <schemas>public</schemas>
+			      <locations>
+			         <location>
+			             filesystem:src/main/resources/db/migration
+			         </location>
+			      </locations>
+			   </configuration>
 			</plugin>
 		</plugins>
 	</build>
