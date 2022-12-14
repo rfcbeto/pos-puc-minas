@@ -7,17 +7,21 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Comment;
 
 import br.com.digitalgold.data.enuns.TipoProdutoEnum;
+import lombok.Data;
 
 
-
+@Data
 @Entity
 @Table(name = "TB_PRODUTO")
 public class Produto implements Serializable {
@@ -66,107 +70,5 @@ public class Produto implements Serializable {
 	@Column(name = "TIPO_PRODUTO", columnDefinition="INTEGER")
 	private TipoProdutoEnum tipoProduto;
 	
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getCodProduto() {
-		return codProduto;
-	}
-
-	public void setCodProduto(String codProduto) {
-		this.codProduto = codProduto;
-	}
-
-	public String getDescricao() {
-		return descricao;
-	}
-
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
-
-	public int getQuantidade() {
-		return quantidade;
-	}
-
-	public void setQuantidade(int quantidade) {
-		this.quantidade = quantidade;
-	}
-
-	public String getCodigoBarrasAntigo() {
-		return codigoBarrasAntigo;
-	}
-
-	public void setCodigoBarrasAntigo(String codigoBarrasAntigo) {
-		this.codigoBarrasAntigo = codigoBarrasAntigo;
-	}
-
-	public String getCodigoBarrasAtual() {
-		return codigoBarrasAtual;
-	}
-
-	public void setCodigoBarrasAtual(String codigoBarrasAtual) {
-		this.codigoBarrasAtual = codigoBarrasAtual;
-	}
-
-	public String getQrCode() {
-		return qrCode;
-	}
-
-	public void setQrCode(String qrCode) {
-		this.qrCode = qrCode;
-	}
-
-	public Date getDataCadastro() {
-		return dataCadastro;
-	}
-
-	public void setDataCadastro(Date dataCadastro) {
-		this.dataCadastro = dataCadastro;
-	}
-
-	public Date getDataFim() {
-		return dataFim;
-	}
-
-	public void setDataFim(Date dataFim) {
-		this.dataFim = dataFim;
-	}
-
-	public Date getDataAlteracaoValorVenda() {
-		return dataAlteracaoValorVenda;
-	}
-
-	public void setDataAlteracaoValorVenda(Date dataAlteracaoValorVenda) {
-		this.dataAlteracaoValorVenda = dataAlteracaoValorVenda;
-	}
-
-	public Double getValorUnitario() {
-		return valorUnitario;
-	}
-
-	public void setValorUnitario(Double valorUnitario) {
-		this.valorUnitario = valorUnitario;
-	}
-
-	public Double getValorVenda() {
-		return valorVenda;
-	}
-
-	public void setValorVenda(Double valorVenda) {
-		this.valorVenda = valorVenda;
-	}
-
-	public TipoProdutoEnum getTipoProduto() {
-		return tipoProduto;
-	}
-
-	public void setTipoProduto(TipoProdutoEnum tipoProduto) {
-		this.tipoProduto = tipoProduto;
-	}		
+		
 }

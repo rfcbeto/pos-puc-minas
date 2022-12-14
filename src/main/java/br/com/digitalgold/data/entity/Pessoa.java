@@ -33,7 +33,7 @@ import lombok.Data;
 @Data
 @Table(name="TB_PESSOA")
 @Entity
-@JsonPropertyOrder({ "id", "nome", "genero", "dataNascimento", "telefone", "tipo", "tipoPessoa", "status", "enderecos" })
+@JsonPropertyOrder({ "id", "nome", "genero", "dataNascimento", "cpf", "telefone", "tipo", "tipoPessoa", "status", "enderecos" })
 public class Pessoa implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -51,6 +51,11 @@ public class Pessoa implements Serializable{
 	@JsonProperty("sexo")
 	@Column(name = "GENERO", length = 1)
 	private String genero;
+
+	@JsonProperty("cpf")
+	@Column(name = "CPF", length = 11)
+	private String cpf;
+
 	
 	@JsonProperty("telefone")
 	@Column(name = "TELEFONE", length = 11)
@@ -61,7 +66,7 @@ public class Pessoa implements Serializable{
 	@Column(name = "STATUS", length = 20)
 	private String status;
 	
-	@JsonProperty("data_nascimento")
+	@JsonProperty("dataNascimento")
 	@Column(name = "DATA_NASCIMENTO", length = 10)
 	private String dataNascimento;
 	

@@ -1,33 +1,34 @@
 package br.com.digitalgold.data.dto;
 
+
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-@JsonPropertyOrder({"identificador", "codigo_produto", "descricao", "quantidade", "valor_unitario", "numero_ncm"})
+@JsonPropertyOrder({"identificador", "codigoProduto", "descricao", "quantidade", "valorUnitario", "numeroNcm"})
 public class ProdutoDTO {
-
 	
 	@JsonProperty("identificador")
 	private Long id;
 
-	@JsonProperty("codigo_produto")
-	private String cProd;
+	@JsonProperty("codigoProduto")
+	private String codProduto;
 	
 	@JsonProperty("descricao")
-	private String xProd;
+	private String descricao;
 	
 	@JsonProperty("quantidade")
-	private String qCom;
+	private int quantidade;
 	
-	@JsonProperty("valor_unitario")
-	private String vUnCom;
+	@JsonProperty("valorUnitario")
+	private double valorUnitario;
 	
 	
-	@JsonProperty("numero_ncm")
-	private String ncm;
+	@JsonProperty("numeroNcm")
+	private String numeroNcm;
 	
-	@JsonProperty("codigo_barra")
-	private String codBarras;
+	@JsonProperty("codigoBarra")
+	private String codigoBarrasAtual;
 
 	public Long getId() {
 		return id;
@@ -37,51 +38,52 @@ public class ProdutoDTO {
 		this.id = id;
 	}
 
-	public String getcProd() {
-		return cProd;
+	public String getCodProduto() {
+		return codProduto;
 	}
 
-	public void setcProd(String cProd) {
-		this.cProd = cProd;
+	public void setCodProduto(String codProduto) {
+		this.codProduto = codProduto;
 	}
 
-	public String getxProd() {
-		return xProd;
+	public String getDescricao() {
+		return descricao;
 	}
 
-	public void setxProd(String xProd) {
-		this.xProd = xProd;
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
 
-	public String getqCom() {
-		return qCom;
+	public int getQuantidade() {
+		return quantidade;
 	}
 
-	public void setqCom(String qCom) {
-		this.qCom = qCom;
+	public void setQuantidade(int quantidade) {
+		this.quantidade = quantidade;
 	}
 
-	public String getvUnCom() {
-		return vUnCom;
+	public double getValorUnitario() {
+		return valorUnitario;
 	}
 
-	public void setvUnCom(String vUnCom) {
-		this.vUnCom = vUnCom;
+	public void setValorUnitario(double valorUnitario) {
+		this.valorUnitario = valorUnitario;
 	}
 
-	public String getNcm() {
-		return ncm;
+	public String getNumeroNcm() {
+		return numeroNcm;
 	}
 
-	public void setNcm(String ncm) {
-		this.ncm = ncm;
+	public void setNumeroNcm(String numeroNcm) {
+		this.numeroNcm = numeroNcm;
 	}
 
-	public String getCodBarras() {
-		return codBarras;
+	public String getCodigoBarrasAtual() {
+		return codigoBarrasAtual;
 	}
 
-	public void setCodBarras(String codBarras) {
-		this.codBarras = codBarras;
+	public void setCodigoBarrasAtual(String codigoBarrasAtual) {
+		this.codigoBarrasAtual = codigoBarrasAtual;
 	}
+
 }

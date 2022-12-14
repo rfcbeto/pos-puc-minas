@@ -1,18 +1,17 @@
 --  1 - Cliente Varejista, 2 - Cliente Atacadista, 3 - Vendedor, 4 - Gerente, 0 - Outros
 
 -- VENDEDOR 1  
-INSERT INTO tb_pessoa VALUES (1, '12/12/1958', 'F', 'MARIA JOANA - VENDEDOR', 'ativo', '3133194444', 3);
+INSERT INTO tb_pessoa (id, data_nascimento, genero, nome, status, telefone, tipo, cpf) VALUES (1, '12/12/1958', 'F', 'MARIA JOANA - VENDEDOR', 'ativo', '3133194444', 3, '47219924089');
 INSERT INTO tb_endereco (id, bairro, cep, cidade, complemento, estado, logradouro, numero, pais, referencia, pessoa_id) VALUES (1, 'CORAÇÃO EUCARISTICO', '30535901', 'Belo Horizonte', null, 'MG', 'Rua Dom José Gaspar', '500', 'Brasil', null, 1);
 
-INSERT INTO tb_pessoa VALUES (2, '12/12/1958', 'F', 'VANIA MELO - GERENTE', 'ativo', '3133194444', 4);
+INSERT INTO tb_pessoa (id, data_nascimento, genero, nome, status, telefone, tipo, cpf) VALUES (2, '12/12/1958', 'F', 'VANIA MELO - GERENTE', 'ativo', '3133194444', 4, '52843212006');
 INSERT INTO tb_endereco (id, bairro, cep, cidade, complemento, estado, logradouro, numero, pais, referencia, pessoa_id) VALUES (2, 'CORAÇÃO EUCARISTICO', '30535901', 'Belo Horizonte', null, 'MG', 'Rua Dom José Gaspar', '501', 'Brasil', null, 2);
 
-INSERT INTO tb_pessoa VALUES (3, '12/12/1958', 'F', 'JULIA - VAREJISTA', 'ativo', '3133194444', 1);
+INSERT INTO tb_pessoa (id, data_nascimento, genero, nome, status, telefone, tipo, cpf) VALUES (3, '12/12/1958', 'F', 'JULIA - VAREJISTA', 'ativo', '3133194444', 1, '41368262066');
 INSERT INTO tb_endereco (id, bairro, cep, cidade, complemento, estado, logradouro, numero, pais, referencia, pessoa_id) VALUES (3, 'CORAÇÃO EUCARISTICO', '30535901', 'Belo Horizonte', null, 'MG', 'Rua Dom José Gaspar', '502', 'Brasil', null, 3);
 
-INSERT INTO tb_pessoa VALUES (4, '12/12/1958', 'F', 'CATARINA - ATACADISTA', 'ativo', '3133194444', 2);
+INSERT INTO tb_pessoa (id, data_nascimento, genero, nome, status, telefone, tipo, cpf) VALUES (4, '12/12/1958', 'F', 'CATARINA - ATACADISTA', 'ativo', '3133194444', 2, '97149248047');
 INSERT INTO tb_endereco (id, bairro, cep, cidade, complemento, estado, logradouro, numero, pais, referencia, pessoa_id) VALUES (4, 'CORAÇÃO EUCARISTICO', '30535901', 'Belo Horizonte', null, 'MG', 'Rua Dom José Gaspar', '503', 'Brasil', null, 4);
-
 
 --Carga incial.
 INSERT INTO tb_tipo_pagamento (id, cod_tipo_pagamento, tipo_pagamento) VALUES (1, '01', 'dinheiro');
